@@ -62,7 +62,7 @@ var facebookLinks = function () {
 	if (detectOs.isAndroid() || detectOs.isIos() ) {
 		jQuery('a').each(function () {
 
-			var pageID = 100057171830883 //detectFBPageName.getName(jQuery(this).attr('href'));
+			var pageID = detectFBPageName.getName(jQuery(this).attr('href'));
 
 			if (!pageID) {
 				return;
