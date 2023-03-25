@@ -39,18 +39,18 @@ var facebookLinks = function () {
     var detectFBPageName = {
         getName: function (pageUrl) {
             try {
-							  if(!pageUrl.includes('facebook.com')){
-									return false;
-								}
+		if(!pageUrl.includes('facebook.com')){
+		  return false;
+		}
                 var url = new URL(pageUrl);
-								var urlParts = url.pathname.split('/');
+		var urlParts = url.pathname.split('/');
 							
-								var name = urlParts.pop();
-								if(name){
-									return name;
-								} else {
-									return urlParts.pop();
-								}
+		var name = urlParts.pop();
+		if(name){
+		    return name;
+		} else {
+		    return urlParts.pop();
+		}
                 
             } catch (ex) {
                 return false;
@@ -71,9 +71,7 @@ var facebookLinks = function () {
 			var currentUrl = jQuery(this).attr('href');
 			
 			if (detectOs.isAndroid()) {
-				//jQuery(this).attr('href', 'intent://page/' + pageID + '#Intent;scheme=fb;package=com.facebook.katana;S.browser_fallback_url='+ encodeURIComponent(currentUrl) +';end');
 				jQuery(this).attr('href', 'fb://facewebmodal/f?href=' + currentUrl);
-				//jQuery(this).attr('href', 'fb://' + currentUrl);
 			} else if (detectOs.isIos()) {
 				jQuery(this).attr('href', 'fb://profile/' + pageID);
 			} else {
