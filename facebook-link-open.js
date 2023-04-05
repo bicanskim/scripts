@@ -62,13 +62,14 @@ var facebookLinks = function () {
 	if (detectOs.isAndroid() || detectOs.isIos() ) {
 		jQuery('a').each(function () {
 
-			var pageID = detectFBPageName.getName(jQuery(this).attr('href'));
+			var currentUrl = jQuery(this).attr('href');
+            		currentUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/'));
+			
+            		var pageID = detectFBPageName.getName(currentUrl);
 
 			if (!pageID) {
 				return;
 			}
-			
-			var currentUrl = jQuery(this).attr('href');
 			
 			if (detectOs.isAndroid()) {
 				jQuery(this).attr('href', 'fb://facewebmodal/f?href=' + currentUrl);
